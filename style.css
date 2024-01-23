@@ -35,14 +35,19 @@ main {
 }
 
 .left-content {
-    width: 70vw;
+    width: 70%;
 }
 
 .right-content {
-    width: 30vw;
+    width: 30%;
     min-height: calc(100vh - 200px);
     box-shadow: 0 4px 16px -6px grey;
-}
+    position: fixed;
+    right: 0;
+    top: 100px;
+    bottom: 100px;
+    transition: all 225ms ease-in-out;
+    }
 
 
 .image-section-restaurant {
@@ -65,8 +70,9 @@ main {
     padding-right: 34px;
 }
 
-.zentriert {
+.center {
     text-align: center;
+    padding-bottom: 50px;
 }
 
 h1 {
@@ -80,6 +86,10 @@ h1 {
   }
   
 .addButton:hover {
+    cursor: pointer;
+}
+
+.hover{
     cursor: pointer;
 }
 
@@ -130,6 +140,52 @@ footer {
     text-decoration: none;
     color: black;
 }
+
+
+.total{
+    display: block;
+    right: 5%;
+    bottom: 2%;
+     padding: 43px;
+     gap: 13px;
+     border-radius: 16px;
+ 
+ }
+ .menuicons{
+    width: 100px;
+ }
+
+
+ @media(max-width: 768px){
+    h1 {
+      font-size: 16px;
+    }
+.content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.left-content {
+    width: 100%;
+}
+
+.right-content {
+    width: 100%;
+    min-height: calc(100vh - 200px);
+    box-shadow: 0 4px 16px -6px grey;
+}
+.Restauranticons{
+   display: none;
+ }
+
+ 
+ .menuicons{
+    display: none;
+  }
+}
+
+
+
 
 /* Fonts */
 /* jetbrains-mono-100 - latin */
