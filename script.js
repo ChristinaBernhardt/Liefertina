@@ -56,14 +56,16 @@ function showMenus() {
   let menuContainer = document.getElementById("menus");
   menuContainer.innerHTML = ``;
   for (let i = 0; i < menus.length; i++) {
-    const item = menus[i];
-    menuContainer.innerHTML += /* html */ `
+    const menu = menus[i];
+    let n = ${menu["name"]};
+    let p = ${menu["price"]};
+menuContainer.innerHTML += /* html */ `
     <div id="menus" class="food_container">
-        <h2 id="name">${item["name"]}</h2>
-        <span id="description">${item["description"]}</span>
+        <h2 id="name">${menu["name"]}</h2>
+        <span id="description">${menu["description"]}</span>
         <div class="price">
             <div > 
-                <h2 id="price" >${item["price"]} €</h2>
+                <h2 id="price" >${menu["price"]} €</h2>
             </div> 
             <div>
                 <button onclick="addToBasket(${i})" class="addButton">+</button>
@@ -76,7 +78,7 @@ function showMenus() {
 
 function addToBasket(i) {
   let name = menus[i]["name"];
-  let price = menus[i][price];
+  let price = menus[i]["price"];
   let index = menuBasket.indexOf(menus);
   if (index == -1) {
     menuBasket.push(name);
