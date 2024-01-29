@@ -47,7 +47,7 @@ main {
     top: 100px;
     bottom: 100px;
     transition: all 225ms ease-in-out;
-    }
+}
 
 
 .image-section-restaurant {
@@ -79,17 +79,18 @@ h1 {
     padding-top: 16px;
     font-size: 34px;
 }
+
 .addButton {
     height: 48px;
     width: 48px;
     font-size: 36px;
-  }
-  
+}
+
 .addButton:hover {
     cursor: pointer;
 }
 
-.hover{
+.hover {
     cursor: pointer;
 }
 
@@ -106,7 +107,6 @@ h1 {
     margin-top: 1rem;
     margin-bottom: 1rem;
     transition: background-color 0.2s ease-in-out;
-    
 }
 
 .price {
@@ -141,51 +141,111 @@ footer {
     color: black;
 }
 
-
-.total{
+.total {
     display: block;
     right: 5%;
     bottom: 2%;
-     padding: 43px;
-     gap: 13px;
-     border-radius: 16px;
- 
- }
- .menuicons{
+    padding: 43px;
+    gap: 13px;
+    border-radius: 16px;
+}
+
+.menuicons {
     width: 100px;
- }
-
-
- @media(max-width: 768px){
-    h1 {
-      font-size: 16px;
-    }
-.content{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-.left-content {
-    width: 100%;
 }
 
-.right-content {
-    width: 100%;
-    min-height: calc(100vh - 200px);
-    box-shadow: 0 4px 16px -6px grey;
-}
-.Restauranticons{
-   display: none;
- }
-
- 
- .menuicons{
+.displayNone {
     display: none;
-  }
 }
 
+.displayFlex {
+    display: flex !important;
+}
 
+.responsiveBasket {
+    display: none;
+}
 
+.shopping-cart-button {
+    width: 60%;
+    max-width: 200px;
+    padding: 1.5em;
+    position: fixed;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff8000;
+    border: var(--orange) 2px solid;
+    border-radius: 5px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+.shopping-cart-order {
+    width: 60%;
+    max-width: 200px;
+    padding: 1.5em;
+    margin-bottom: 16px;
+    background-color: #ff8000;
+    border: #ff8000 2px solid;
+    border-radius: 5px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+}
+
+.shopping-cart-back {
+    width: 60%;
+    max-width: 200px;
+    padding: 1.5em;
+    background-color: #ff8000;
+    border: #ff8000 2px solid;
+    border-radius: 5px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+}
+
+@media(max-width: 768px) {
+    h1 {
+        font-size: 16px;
+    }
+
+    .shopping-cart-button {
+        display: flex;
+        justify-content: center;
+    }
+
+    .content {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .left-content {
+        width: 100%;
+    }
+
+    .right-content {
+        width: 100%;
+        min-height: calc(100vh - 200px);
+        box-shadow: 0 4px 16px -6px grey;
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .Restauranticons {
+        display: none;
+    }
+
+    .menuicons {
+        display: none;
+    }
+}
 
 /* Fonts */
 /* jetbrains-mono-100 - latin */

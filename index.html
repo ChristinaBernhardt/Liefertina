@@ -24,12 +24,9 @@
     </header>
     <main>
         <section class="content">
-            <section class="left-content">
-
-
+            <section id="left" class="left-content">
                 <section class="restaurant">
                     <image class="image-section-restaurant" src="img/pork2.png"></image>
-
                     <div class="Restaurant">
                         <div>
                             <div>Partykracher - DER Lieferservice für Deine Party</div>
@@ -41,18 +38,13 @@
                         </div>
                     </div>
                 </section>
-                <section class="container">
-
-
+                <section id="container" class="container">
                     <div id="menus">
-
                         <h2 id="name"></h2>
                         <span id="description"></span>
                         <h2 id="price"></h2>
                     </div>
-
                 </section>
-
                 <section class="imprint">
                     <b>Impressum</b>
                     Christina Bernhardt handelt im Namen von Partykracher
@@ -66,21 +58,22 @@
                     Verbraucherverantwortung übernehmen.
                 </section>
             </section>
-
             <section id="right" class="right-content">
                 <span>
                     <h1 class="center">Warenkorb</h1>
                 </span>
-
                 <div id="shopping-basket" class="center">
                     <image src="img/ShoppingBasket.png"></image>
                     <h2 class="zentriert">Fülle deinen Warenkorb</h2>
                     Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.
+                    <button onclick="window.location.reload()" class="shopping-cart-back">zurück zum Menü</button>
                 </div>
                 <div id="total">
                 </div>
             </section>
         </section>
+        <button id="shopping_cart_button" onclick="openOrCloseSomeBox()" class="shopping-cart-button">
+            Warenkorb</button>
     </main>
     <footer>
         <div class="menu-footer">
@@ -98,7 +91,6 @@
             <div>© 2024 Christina Bernhardt</div>
         </div>
     </footer>
-
 </body>
 
 </html>

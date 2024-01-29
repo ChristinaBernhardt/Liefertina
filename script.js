@@ -62,8 +62,8 @@ function showMenus() {
   let menuContainer = document.getElementById("menus"); //Variable menuContainer
   menuContainer.innerHTML = ``;
   for (let i = 0; i < menus.length; i++) {
-    const menu = menus[i];                              //Variable menu
-     menuContainer.innerHTML += generateShowMenuHTML(menu, i)
+    const menu = menus[i]; //Variable menu
+    menuContainer.innerHTML += generateShowMenuHTML(menu, i);
   }
 }
 
@@ -74,7 +74,7 @@ function generateShowMenuHTML(menu, i) {
         <span id="description">${menu["description"]}</span>
         <div class="price">
             <div >
-                <h2 id="price" >${menu["priceformatted"]} €</h2>
+                <h2 id="price" >${menu["priceformatted"]} € </h2>
             </div>
             <div>
                 <button onclick="addToBasket(${i})" class="addButton">+</button>
@@ -83,7 +83,6 @@ function generateShowMenuHTML(menu, i) {
     </div>
     `;
 }
-
 
 function addToBasket(i) {
   let name = menus[i]["name"];
@@ -122,39 +121,45 @@ function renderBasket() {
     const menuBasketi = menuBasket[i];
     const priceBasketi = priceBasket[i];
     const amountBasketi = amountBasket[i];
-    const SemitotalSum = (priceBasketi * amountBasketi).toLocaleString("de-DE", options);
-    basket.innerHTML += generateBasketHTML(amountBasketi, menuBasketi, SemitotalSum, i);
+    const SemitotalSum = (priceBasketi * amountBasketi).toLocaleString(
+      "de-DE",
+      options
+    );
+    basket.innerHTML += generateBasketHTML(
+      amountBasketi,
+      menuBasketi,
+      SemitotalSum,
+      i
+    );
     total();
-  }}
+  }
+}
 
-    function generateBasketHTML(amount, menu, SemitotalSum, i){
-    return `
+function generateBasketHTML(amount, menu, SemitotalSum, i) {
+  return `
       <div id="summeContainer" class="stylefood">
-         ${amount}x ${menu} ${SemitotalSum}
+         ${amount}x ${menu} ${SemitotalSum} €
         <div class="symbole">
         <button class= "add" onclick='add_amount(${i})'>+</button>
         </div>
       <button class="remove" onclick='remove_amount(${i})'>-</button>
       </div>
       `;
-    }
-   
+}
 
 function total() {
   let totalElement = document.getElementById("total");
   let total = 0;
-
   for (let i = 0; i < menuBasket.length; i++) {
     const price = priceBasket[i];
     const amount = amountBasket[i];
-    total = price * amount;
+    total += price * amount;
   }
-
-  totalElement.innerHTML = /* html */`
+  totalElement.innerHTML = /* html */ `
       <div class="total">
         <div class="subtotal">
           <div>Zwischensumme</div>
-          <div>${total}€</div>
+          <div>${total.toLocaleString("de-DE", options)} €</div>
         </div>
         <div class="delivery">
           <div>Lieferkosten</div>
@@ -162,10 +167,11 @@ function total() {
         </div>
         <div class="total" id="total">
           <div>Gesamtsumme</div>
-          <div>${total + 5}€</div>
+          <div>${(total + 5).toLocaleString("de-DE", options)} €</div>
         </div>
         <div>
-          <button onclick="notdefined()">Bestellen</button>
+          <button onclick="notdefined()" class="shopping-cart-order">Bestellen</button>
+          <button onclick="window.location.reload()" class="shopping-cart-back">zurück zum Menü</button>
         </div>
       </div>
      `;
@@ -178,30 +184,15 @@ function notdefined() {
 }
 
 window.onscroll = function () {
-  let shoppingbasket = document.getElementById('right');
+  let shoppingbasket = document.getElementById("right");
   if (window.scrollY > 0) {
-    shoppingbasket.style = 'top: 0';
+    shoppingbasket.style = "top: 0";
+  } else {
+    shoppingbasket.style = "top: 100px";
   }
-  else {
-    shoppingbasket.style = 'top: 100px';
-  }
+};
+
+function openOrCloseSomeBox() {
+  document.getElementById("left").classList.add("displayNone");
+  document.getElementById("right").classList.add("displayFlex");
 }
-
-
-
-// function addToBasket(name, price){
-// names.push(name);
-// prices.push(price);
-// }
-
-// function updateShoppingBasket(){
-// let sum = 0;
-
-// for (let i = 0; i < prices.length; i++) {
-//     sum +=prices[i];
-
-// }
-// let finalSum = sum + 1;//Versandkosten erfassen
-// document.getElementById(...).innerHTML = finalSum;
-// }
-
